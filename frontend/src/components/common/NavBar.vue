@@ -67,7 +67,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 .nav-logo-text {
   font-size: 18px;
   font-weight: 800;
-  color: var(--color-text-white);
+  color: var(--color-text-primary);
   letter-spacing: 2px;
 }
 
@@ -87,7 +87,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 }
 
 .nav-links a:hover {
-  color: var(--color-text-white);
+  color: var(--color-text-primary);
 }
 
 .nav-cta {

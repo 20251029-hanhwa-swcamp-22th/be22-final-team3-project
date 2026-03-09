@@ -1,14 +1,16 @@
 <template>
-  <DefaultLayout>
+  <div class="login-page">
     <HeroSection />
-    <FeaturesSection />
-    <StatsSection />
-  </DefaultLayout>
+  </div>
 </template>
 
 <script setup>
-import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import HeroSection from '@/components/landing/HeroSection.vue'
-import FeaturesSection from '@/components/landing/FeaturesSection.vue'
-import StatsSection from '@/components/landing/StatsSection.vue'
 </script>
+
+<style scoped>
+.login-page {
+  min-height: 100vh;
+  background-color: var(--color-primary);
+}
+</style>

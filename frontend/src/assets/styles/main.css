@@ -1,42 +1,54 @@
-/* ── Design Tokens ── */
+/* ── Design Tokens: Mint & Indigo Theme ── */
 :root {
   /* Brand Colors */
-  --color-primary: #6B5CE7;
-  --color-primary-hover: #7D70EE;
-  --color-primary-light: #A99EF0;
-  --color-primary-bg: rgba(107, 92, 231, 0.15);
-  --color-primary-border: rgba(107, 92, 231, 0.3);
+  --color-primary: #201F6E;
+  --color-primary-hover: #5B4FCF;
+  --color-primary-light: #5B4FCF;
+  --color-primary-bg: #F6EEFF;
+  --color-primary-border: #E0D0FF;
 
   /* Background */
-  --color-bg-deep: #0F0A2E;
-  --color-bg-dark: #2D1B69;
-  --color-bg-dark-hover: #3D2B7A;
-  --color-bg-nav: rgba(15, 10, 46, 0.85);
-  --color-bg-nav-scroll: rgba(15, 10, 46, 0.95);
+  --color-bg-deep: #FAF8FF;
+  --color-bg-dark: #201F6E;
+  --color-bg-dark-hover: #5B4FCF;
+  --color-bg-nav: rgba(250, 248, 255, 0.9);
+  --color-bg-nav-scroll: rgba(250, 248, 255, 0.97);
+  --color-bg-section: #F6EEFF;
+  --color-bg-mint: #E3FBEF;
+  --color-bg-success: #00BF95;
+  --color-bg-danger: #EF476F;
 
   /* Text */
   --color-text-white: #fff;
-  --color-text-muted: rgba(255, 255, 255, 0.7);
-  --color-text-dim: rgba(255, 255, 255, 0.5);
-  --color-text-faint: rgba(255, 255, 255, 0.3);
-  --color-text-dark: #1B1045;
-  --color-text-body: #333;
-  --color-text-subtle: #888;
-  --color-text-placeholder: #A8A4B8;
+  --color-text-primary: #201F6E;
+  --color-text-muted: rgba(32, 31, 110, 0.6);
+  --color-text-dim: rgba(32, 31, 110, 0.45);
+  --color-text-faint: rgba(32, 31, 110, 0.25);
+  --color-text-dark: #201F6E;
+  --color-text-body: #201F6E;
+  --color-text-subtle: rgba(32, 31, 110, 0.5);
+  --color-text-placeholder: rgba(32, 31, 110, 0.35);
 
   /* Borders */
-  --color-border-light: rgba(255, 255, 255, 0.08);
-  --color-border-input: #E0DDE8;
-  --color-border-nav: rgba(107, 92, 231, 0.15);
+  --color-border-light: #E0D0FF;
+  --color-border-input: #E0D0FF;
+  --color-border-nav: #E0D0FF;
 
   /* Surfaces */
   --color-surface-card: #fff;
-  --color-surface-input: #FAFAFC;
-  --color-surface-hover: #F8F7FF;
+  --color-surface-input: #FAF8FF;
+  --color-surface-hover: #F6EEFF;
 
   /* Feedback */
-  --color-success: #27AE60;
-  --color-error: #E74C3C;
+  --color-success: #00BF95;
+  --color-error: #EF476F;
+  --color-warning: #FFD166;
+
+  /* Tier System */
+  --color-tier-s: #00BF95;
+  --color-tier-a: #5B4FCF;
+  --color-tier-b: #FFD166;
+  --color-tier-c: #EF476F;
 
   /* Typography */
   --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -47,9 +59,9 @@
   --radius-lg: 16px;
   --radius-pill: 20px;
 
-  /* Shadows */
-  --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 80px rgba(107, 92, 231, 0.1);
-  --shadow-toast: 0 8px 24px rgba(0, 0, 0, 0.3);
+  /* Shadows (light theme — softer) */
+  --shadow-card: 0 4px 24px rgba(32, 31, 110, 0.08), 0 0 48px rgba(91, 79, 207, 0.06);
+  --shadow-toast: 0 4px 16px rgba(32, 31, 110, 0.12);
 }
 
 /* ── Reset ── */
@@ -68,6 +80,6 @@ html {
 body {
   font-family: var(--font-family);
   background: var(--color-bg-deep);
-  color: var(--color-text-white);
+  color: var(--color-text-primary);
   overflow-x: hidden;
 }

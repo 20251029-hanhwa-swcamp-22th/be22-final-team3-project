@@ -9,7 +9,7 @@
 .footer {
   padding: 48px 40px 32px;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--color-border-light);
 }
 
 .footer-logo {
@@ -22,6 +22,6 @@
 
 .footer-text {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--color-text-faint);
 }
 </style>

@@ -21,9 +21,9 @@ const stats = [
 <style scoped>
 .stats {
   padding: 80px 40px;
-  background: rgba(107, 92, 231, 0.06);
-  border-top: 1px solid rgba(107, 92, 231, 0.1);
-  border-bottom: 1px solid rgba(107, 92, 231, 0.1);
+  background: var(--color-bg-section);
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .stats-grid {

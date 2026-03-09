@@ -1,8 +1,9 @@
 <template>
   <div class="login-card" id="login">
     <div class="login-card-header">
-      <div class="login-card-title">로그인</div>
-      <div class="login-card-subtitle">사원번호와 비밀번호를 입력하세요</div>
+      <div class="brand-logo">SE</div>
+      <h2 class="brand-title">S.E.T.O</h2>
+      <p class="brand-subtitle">Smart Equipment & Talent Orchestrator</p>
     </div>
 
     <form @submit.prevent="handleLogin">
@@ -26,16 +27,16 @@
           class="form-input"
           type="password"
           id="password"
-          placeholder="비밀번호를 입력하세요"
+          placeholder="••••••••"
           autocomplete="current-password"
           required
         />
       </div>
 
-      <div class="auto-login">
-        <label>
+      <div class="form-options">
+        <label class="auto-login">
           <input v-model="autoLogin" type="checkbox" />
-          자동 로그인
+          <span>자동 로그인</span>
         </label>
       </div>
 
@@ -49,9 +50,16 @@
       </button>
     </form>
 
-    <div class="login-divider">또는</div>
+    <div class="login-divider">
+      <span class="divider-line"></span>
+      <span class="divider-text">또는</span>
+      <span class="divider-line"></span>
+    </div>
 
     <button class="btn-sso" @click="handleSSO">
+      <svg class="sso-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 21h18M3 7v1a3 3 0 006 0V7m0 1a3 3 0 006 0V7m0 1a3 3 0 006 0V7M4 21V5a2 2 0 012-2h12a2 2 0 012 2v16M9 13h0m0 4h0m6-4h0m0 4h0" />
+      </svg>
       사내 SSO로 로그인
     </button>
 
@@ -92,7 +100,6 @@ async function handleLogin() {
     const user = await authStore.login(employeeId.value.trim(), password.value)
     showToast(`${user.name}님 환영합니다! (${user.role} / ${user.tier}-Tier)`)
     success.value = true
-    // TODO: router.push('/dashboard') after dashboard page exists
   } catch (err) {
     showToast(err.message, true)
   } finally {
@@ -117,49 +124,69 @@ async function handlePasswordRecovery() {
 <style scoped>
 .login-card {
   background: var(--color-surface-card);
-  border-radius: var(--radius-lg);
-  padding: 40px 32px;
+  border-radius: 24px;
+  padding: 48px 40px;
   box-shadow: var(--shadow-card);
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid var(--color-border-light);
 }
 
 .login-card-header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 
-.login-card-title {
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 20px;
-  font-weight: 700;
-  color: var(--color-text-dark);
-  margin-bottom: 4px;
+  font-weight: 800;
+  margin: 0 auto 16px;
 }
 
-.login-card-subtitle {
+.brand-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.brand-subtitle {
   font-size: 13px;
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
+  font-weight: 500;
 }
 
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .form-label {
   display: block;
   font-size: 13px;
   font-weight: 600;
-  color: var(--color-text-body);
-  margin-bottom: 6px;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+  text-align: left;
 }
 
 .form-input {
   width: 100%;
-  padding: 12px 14px;
-  border: 1.5px solid var(--color-border-input);
+  padding: 14px 16px;
+  border: 1px solid var(--color-border-input);
   border-radius: var(--radius-md);
-  font-size: 14px;
+  font-size: 15px;
   color: var(--color-text-body);
-  background: var(--color-surface-input);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fff;
+  transition: all 0.2s;
   outline: none;
 }
 
@@ -168,51 +195,52 @@ async function handlePasswordRecovery() {
 }
 
 .form-input:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(107, 92, 231, 0.12);
-  background: var(--color-surface-card);
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 4px rgba(91, 79, 207, 0.08);
+}
+
+.form-options {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .auto-login {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.auto-login label {
   font-size: 13px;
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .auto-login input[type="checkbox"] {
   accent-color: var(--color-primary);
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 }
 
 .btn-login {
   width: 100%;
-  padding: 14px;
-  background: var(--color-bg-dark);
+  padding: 16px;
+  background: var(--color-primary);
   color: var(--color-text-white);
   border: none;
   border-radius: var(--radius-md);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  transition: all 0.2s;
   letter-spacing: 0.5px;
 }
 
 .btn-login:hover {
-  background: var(--color-bg-dark-hover);
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
 }
 
 .btn-login:active {
-  transform: scale(0.98);
+  transform: translateY(0);
 }
 
 .btn-login.loading {
@@ -220,73 +248,77 @@ async function handlePasswordRecovery() {
   opacity: 0.8;
 }
 
-.btn-login.loading::after {
-  content: '';
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: spin 0.6s linear infinite;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
 .login-divider {
-  text-align: center;
-  margin: 16px 0;
-  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+  gap: 12px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border-light);
+}
+
+.divider-text {
   font-size: 13px;
+  color: var(--color-text-faint);
   font-weight: 500;
 }
 
 .btn-sso {
   width: 100%;
-  padding: 12px;
-  background: var(--color-surface-card);
-  color: var(--color-text-body);
-  border: 1.5px solid var(--color-border-input);
+  padding: 14px;
+  background: #fff;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border-input);
   border-radius: var(--radius-md);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
+  transition: all 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .btn-sso:hover {
-  border-color: var(--color-primary);
   background: var(--color-surface-hover);
+  border-color: var(--color-primary-light);
+}
+
+.sso-icon {
+  width: 18px;
+  height: 18px;
 }
 
 .password-recovery {
   text-align: center;
-  margin-top: 14px;
+  margin-top: 20px;
 }
 
 .password-recovery a {
   font-size: 13px;
-  color: var(--color-primary);
+  color: var(--color-text-muted);
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.2s;
 }
 
 .password-recovery a:hover {
+  color: var(--color-primary);
   text-decoration: underline;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 480px) {
   .login-card {
-    max-width: 420px;
-    margin: 0 auto;
+    padding: 32px 24px;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
   }
 }
 </style>
+

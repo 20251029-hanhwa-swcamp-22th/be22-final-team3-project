@@ -67,7 +67,7 @@ const features = [
 .section-label {
   font-size: 13px;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-primary-light);
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -76,7 +76,7 @@ const features = [
 .section-title {
   font-size: 36px;
   font-weight: 800;
-  color: var(--color-text-white);
+  color: var(--color-text-primary);
   margin-bottom: 16px;
 }
 
@@ -97,17 +97,18 @@ const features = [
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--color-surface-card);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-lg);
   padding: 36px 28px;
-  transition: background 0.3s, border-color 0.3s, transform 0.2s;
+  transition: background 0.3s, border-color 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 
 .feature-card:hover {
-  background: rgba(107, 92, 231, 0.08);
-  border-color: rgba(107, 92, 231, 0.25);
+  background: var(--color-primary-bg);
+  border-color: var(--color-primary-border);
   transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
 }
 
 .feature-icon {
@@ -125,7 +126,7 @@ const features = [
 .feature-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--color-text-white);
+  color: var(--color-text-primary);
   margin-bottom: 10px;
 }
 
