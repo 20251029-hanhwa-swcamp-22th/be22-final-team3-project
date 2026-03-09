@@ -1,0 +1,73 @@
+/* ── Design Tokens ── */
+:root {
+  /* Brand Colors */
+  --color-primary: #6B5CE7;
+  --color-primary-hover: #7D70EE;
+  --color-primary-light: #A99EF0;
+  --color-primary-bg: rgba(107, 92, 231, 0.15);
+  --color-primary-border: rgba(107, 92, 231, 0.3);
+
+  /* Background */
+  --color-bg-deep: #0F0A2E;
+  --color-bg-dark: #2D1B69;
+  --color-bg-dark-hover: #3D2B7A;
+  --color-bg-nav: rgba(15, 10, 46, 0.85);
+  --color-bg-nav-scroll: rgba(15, 10, 46, 0.95);
+
+  /* Text */
+  --color-text-white: #fff;
+  --color-text-muted: rgba(255, 255, 255, 0.7);
+  --color-text-dim: rgba(255, 255, 255, 0.5);
+  --color-text-faint: rgba(255, 255, 255, 0.3);
+  --color-text-dark: #1B1045;
+  --color-text-body: #333;
+  --color-text-subtle: #888;
+  --color-text-placeholder: #A8A4B8;
+
+  /* Borders */
+  --color-border-light: rgba(255, 255, 255, 0.08);
+  --color-border-input: #E0DDE8;
+  --color-border-nav: rgba(107, 92, 231, 0.15);
+
+  /* Surfaces */
+  --color-surface-card: #fff;
+  --color-surface-input: #FAFAFC;
+  --color-surface-hover: #F8F7FF;
+
+  /* Feedback */
+  --color-success: #27AE60;
+  --color-error: #E74C3C;
+
+  /* Typography */
+  --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 20px;
+
+  /* Shadows */
+  --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 80px rgba(107, 92, 231, 0.1);
+  --shadow-toast: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--color-bg-deep);
+  color: var(--color-text-white);
+  overflow-x: hidden;
+}
