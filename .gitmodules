@@ -1,0 +1,6 @@
+[submodule "team3-frontend"]
+	path = team3-frontend
+	url = https://github.com/hanhwa-swcamp-22th-final/team3-frontend.git
+[submodule "team3-manifast"]
+	path = team3-manifast
+	url = https://github.com/hanhwa-swcamp-22th-final/team3-manifast.git
