@@ -4,3 +4,6 @@
 [submodule "team3-manifast"]
 	path = team3-manifast
 	url = https://github.com/hanhwa-swcamp-22th-final/team3-manifast.git
+[submodule "team3-backend-admin"]
+	path = team3-backend-admin
+	url = https://github.com/hanhwa-swcamp-22th-final/team3-backend-admin.git
