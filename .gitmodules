@@ -4,3 +4,15 @@
 [submodule "team3-manifast"]
 	path = team3-manifast
 	url = https://github.com/hanhwa-swcamp-22th-final/team3-manifast.git
+[submodule "team3-backend-admin"]
+	path = team3-backend-admin
+	url = https://github.com/hanhwa-swcamp-22th-final/team3-backend-admin.git
+[submodule "team3-backend-hr"]
+	path = team3-backend-hr
+	url = https://github.com/hanhwa-swcamp-22th-final/team3-backend-hr.git
+[submodule "team3-backend-scm"]
+	path = team3-backend-scm
+	url = https://github.com/hanhwa-swcamp-22th-final/team3-backend-scm.git
+[submodule "team3-backend-kms"]
+	path = team3-backend-kms
+	url = https://github.com/hanhwa-swcamp-22th-final/team3-backend-kms.git
