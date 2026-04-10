@@ -92,6 +92,9 @@ services:
       - "8084:8084"
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      NLP_GOOGLE_CREDENTIALS_LOCATION: file:/run/secrets/gcp_key_json
+    secrets:
+      - gcp_key_json
     depends_on:
       kafka:
         condition: service_healthy
@@ -118,3 +121,7 @@ services:
         condition: service_healthy
       backend-kms:
         condition: service_healthy
+
+secrets:
+  gcp_key_json:
+    file: ./secrets/gcp-key.json
