@@ -98,6 +98,8 @@ services:
     ports:
       - "8083:8083"
     environment:
+      FEIGN_ADMIN_URL: http://backend-admin:8080
+      FEIGN_HR_URL: http://backend-hr:8081
       SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE: 2
       SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE: 1
       SPRING_DATASOURCE_HIKARI_IDLE_TIMEOUT: 10000
