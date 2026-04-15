@@ -63,8 +63,6 @@ services:
       SPRING_DATASOURCE_HIKARI_IDLE_TIMEOUT: 10000
       SPRING_DATASOURCE_HIKARI_MAX_LIFETIME: 30000
       SPRING_DATASOURCE_HIKARI_CONNECTION_TIMEOUT: 30000
-      FEIGN_ADMIN_URL: http://backend-admin:8080
-      FEIGN_SCM_URL: http://backend-scm:8082
     depends_on:
       kafka:
         condition: service_healthy
@@ -94,6 +92,8 @@ services:
       SPRING_DATASOURCE_HIKARI_CONNECTION_TIMEOUT: 30000
     depends_on:
       kafka:
+        condition: service_healthy
+      backend-admin:
         condition: service_healthy
     healthcheck:
       test: ["CMD-SHELL", "bash -c 'echo > /dev/tcp/localhost/8082'"]
