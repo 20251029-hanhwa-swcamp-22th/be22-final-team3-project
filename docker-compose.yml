@@ -26,6 +26,7 @@ services:
     ports:
       - "8080:8080"
     environment:
+      TZ: Asia/Seoul
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       NLP_GOOGLE_CREDENTIALS_LOCATION: file:/run/secrets/gcp_key_json
       SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE: 2
@@ -33,6 +34,7 @@ services:
       SPRING_DATASOURCE_HIKARI_IDLE_TIMEOUT: 10000
       SPRING_DATASOURCE_HIKARI_MAX_LIFETIME: 30000
       SPRING_DATASOURCE_HIKARI_CONNECTION_TIMEOUT: 30000
+      FEIGN_HR_URL: http://backend-hr:8081
 
     secrets:
       - gcp_key_json
@@ -52,6 +54,7 @@ services:
     ports:
       - "8081:8081"
     environment:
+      TZ: Asia/Seoul
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       FEIGN_ADMIN_URL: http://backend-admin:8080
       FEIGN_SCM_URL: http://backend-scm:8082
@@ -60,6 +63,8 @@ services:
       SPRING_DATASOURCE_HIKARI_IDLE_TIMEOUT: 10000
       SPRING_DATASOURCE_HIKARI_MAX_LIFETIME: 30000
       SPRING_DATASOURCE_HIKARI_CONNECTION_TIMEOUT: 30000
+      FEIGN_ADMIN_URL: http://backend-admin:8080
+      FEIGN_SCM_URL: http://backend-scm:8082
     depends_on:
       kafka:
         condition: service_healthy
@@ -78,8 +83,10 @@ services:
     ports:
       - "8082:8082"
     environment:
+      TZ: Asia/Seoul
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       ADMIN_URL: http://backend-admin:8080
+      HR_URL: http://backend-hr:8081
       SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE: 2
       SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE: 1
       SPRING_DATASOURCE_HIKARI_IDLE_TIMEOUT: 10000
@@ -101,6 +108,7 @@ services:
     ports:
       - "8083:8083"
     environment:
+      TZ: Asia/Seoul
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE: 2
       SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE: 1
@@ -120,12 +128,13 @@ services:
     ports:
       - "8084:8084"
     environment:
+      TZ: Asia/Seoul
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       NLP_GOOGLE_CREDENTIALS_LOCATION: file:/run/secrets/gcp_key_json
-      SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE: 6
-      SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE: 1
-      SPRING_DATASOURCE_HIKARI_IDLE_TIMEOUT: 10000
-      SPRING_DATASOURCE_HIKARI_MAX_LIFETIME: 30000
+      SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE: 5
+      SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE: 2
+      SPRING_DATASOURCE_HIKARI_IDLE_TIMEOUT: 30000
+      SPRING_DATASOURCE_HIKARI_MAX_LIFETIME: 60000
       SPRING_DATASOURCE_HIKARI_CONNECTION_TIMEOUT: 30000
     secrets:
       - gcp_key_json
